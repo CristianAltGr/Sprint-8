@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import Link from "../components/Link";
 
 
 const Ships = () => {
@@ -18,9 +19,10 @@ const Ships = () => {
 
         <div>
             {ships.map(ship => {
+                console.log(ship);
                 return (
                     <div key={ship.created}>
-                        <h4>{ship.name}</h4>
+                        <Link to={"/ships/shipInfo/"} >{ship.name}</Link>
                         <p> {ship.model}</p>
                     </div>
                 )
