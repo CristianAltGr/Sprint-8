@@ -1,3 +1,16 @@
-const ShipInfo = () => <div>Ship</div>;
+import { useContext } from "react";
+import { AppContext } from "../aplication/provider";
 
+const ShipInfo = () => {
+
+    const [shipSelect, setSelect] = useContext(AppContext);
+    console.log(shipSelect);
+    return (
+        <>
+            <div> {shipSelect.name}</div>
+        </>
+    )
+}
+//rellenar todos los elementos que faltan de la fitxa, crear un regEx en uno de los elementos para hacer la petición de axios
+//para recoger la imagen en la web esa que falla como un tiro
 export default ShipInfo;
