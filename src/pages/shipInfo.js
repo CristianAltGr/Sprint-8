@@ -11,6 +11,7 @@ const ShipInfo = () => {
         </>
     )
 }
+//Quiza sea mejor cambiar el useContext por un setparams de la peticion i usarlo mas adelante para el login.
 //rellenar todos los elementos que faltan de la fitxa, crear un regEx en uno de los elementos para hacer la petición de axios
 //para recoger la imagen en la web esa que falla como un tiro
 export default ShipInfo;
