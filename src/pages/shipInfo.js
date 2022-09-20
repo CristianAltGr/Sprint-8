@@ -18,7 +18,7 @@ const ShipInfo = () => {
 
     return (
         <>
-            <img src={APIIMGSHIP} alt="Image of starship" />
+            <img src={APIIMGSHIP} alt="Starship space" />
             <h4>{selectShip.name}</h4>
             <div border="1">
                 <ul>
