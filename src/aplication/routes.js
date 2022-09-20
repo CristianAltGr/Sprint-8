@@ -13,7 +13,7 @@ const Router = () => (
             <Route path={process.env.PUBLIC_URL}>
                 <Route index element={<Home />} />
                 <Route path="ships/" element={<Ships />} />
-                <Route path="ships/shipInfo/" element={<ShipInfo />} />
+                <Route path="ships/shipInfo/:id" element={<ShipInfo />} />
             </Route>
             <Route path="*" element={<div><h2>404 not found</h2></div>} />
         </Routes>
