@@ -14,10 +14,8 @@ const Ships = () => {
     const [page, setPage] = useState(1);
 
     useEffect(() => {
-        //const request: Joke = await fetch(APIJOKE,{headers: {'Accept': 'application/json'}})
-        //.then((res) => res.json())
-        axios.get(APISHIPS + page).then((res) => { setShips(res.data.results) });
-    }, [, page]);
+        axios.get(APISHIPS + page).then((res) => { setShips((prevMovies) => page === 1 ? res.data.results : prevMovies.concat(res.data.results)) });
+    }, [page]);
 
 
     return (
