@@ -12,14 +12,18 @@ const Ships = () => {
 
     const [ships, setShips] = useState([]);
     const [page, setPage] = useState(1);
+    const [hasMoreFilms, setMore] = useState(true);
 
     useEffect(() => {
-        axios.get(APISHIPS + page).then((res) => { setShips((prevMovies) => page === 1 ? res.data.results : prevMovies.concat(res.data.results)) });
+        axios.get(APISHIPS + page).then((res) => {
+            setShips((prevMovies) => page === 1 ? res.data.results : prevMovies.concat(res.data.results));
+            setMore(page >= 4 ? false : true);
+        })
     }, [page]);
 
 
     return (
-        <InfiniteScroll dataLength={ships.length} hasMore={true} next={() => setPage((prevPage) => prevPage + 1)}>
+        <InfiniteScroll dataLength={ships.length} hasMore={hasMoreFilms} next={() => setPage((prevPage) => prevPage + 1)}>
             <div>
                 {ships.map(ship => {
 
