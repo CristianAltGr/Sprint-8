@@ -1,43 +1,44 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
-
+import { StarShipS, ShipImg } from "../components/styles";
+import defaultImg from "../assets/autostop.jpg"
 
 const ShipInfo = () => {
 
     const [selectShip, setSelect] = useState([]);
     const urlShip = useParams();
     const APISHIPS = "https://swapi.dev/api/starships/";
-    const APIIMGSHIP = "https://starwars-visualguide.com/assets/img/starships/" + urlShip.id + ".jpg"
-    //config img errorp   
+    const APIIMGSHIP = "https://starwars-visualguide.com/assets/img/starships/" + urlShip.id + ".jpg";
+
+
     useEffect(() => {
         axios.get(APISHIPS + urlShip.id).then((res) => { setSelect(res.data) });
     }, [urlShip]);
 
 
     return (
-        <>
-            <img src={APIIMGSHIP} alt="Starship space" />
+        <StarShipS>
+            <ShipImg img={APIIMGSHIP} defaultImg={defaultImg}></ShipImg>
             <h4>{selectShip.name}</h4>
             <div border="1">
                 <ul>
-                    <li>Model: {selectShip.model}</li>
-                    <li>Cost in credits: {selectShip.cost_in_credits}</li>
-                    <li>Length: {selectShip.length}</li>
-                    <li>Max. atmosphering speed: {selectShip.max_atmosphering_speed}</li>
-                    <li>Crew: {selectShip.crew}</li>
+                    <li type="none" ><p>Model: {selectShip.model}</p></li>
+                    <li type="none"><p>Cost in credits: {selectShip.cost_in_credits}</p></li>
+                    <li type="none"><p>Length: {selectShip.length}</p></li>
+                    <li type="none"><p>Max. atmosphering speed: {selectShip.max_atmosphering_speed}</p></li>
+                    <li type="none"><p>Crew: {selectShip.crew}</p></li>
                 </ul>
                 <ul>
-                    <li>Passengers: {selectShip.passengers}</li>
-                    <li>Cargo capacity: {selectShip.cargo_capacity}</li>
-                    <li>Consumables: {selectShip.consumables}</li>
-                    <li>Hyperdrive rating: {selectShip.hyperdrive_rating}</li>
-                    <li>MGLT: {selectShip.MGLT}</li>
-                    <li>Starship class: {selectShip.starship_class}</li>
+                    <li type="none"><p>Passengers: {selectShip.passengers}</p></li>
+                    <li type="none"><p>Cargo capacity: {selectShip.cargo_capacity}</p></li>
+                    <li type="none"><p>Consumables: {selectShip.consumables}</p></li>
+                    <li type="none"><p>Hyperdrive rating: {selectShip.hyperdrive_rating}</p></li>
+                    <li type="none"><p>MGLT: {selectShip.MGLT}</p></li>
+                    <li type="none"><p>Starship class: {selectShip.starship_class}</p></li>
                 </ul>
             </div>
-        </>
+        </StarShipS>
     )
 }
 

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import Link from "../components/Link";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { ShipsListS } from "../components/styles";
 /*import { useContext } from "react";
 import { AppContext } from "../aplication/provider";*/
 
@@ -23,19 +24,19 @@ const Ships = () => {
 
 
     return (
-        <InfiniteScroll dataLength={ships.length} hasMore={hasMoreFilms} next={() => setPage((prevPage) => prevPage + 1)}>
-            <div>
-                {ships.map(ship => {
+        <InfiniteScroll dataLength={ships.length} hasMore={hasMoreFilms} next={() => setPage((prevPage) => prevPage + 1)} scrollThreshold={0.7}>
 
-                    const id = (ship.url.match(/\d/g)).join("");
-                    return (
-                        <div key={ship.created}>
-                            <Link to={"/ships/shipInfo/" + id}> {ship.name}</Link>
-                            <p> {ship.model}</p>
-                        </div>
-                    )
-                })}
-            </div >
+            {ships.map(ship => {
+
+                const id = (ship.url.match(/\d/g)).join("");
+                return (
+                    <ShipsListS key={ship.created}>
+                        <Link to={"/ships/shipInfo/" + id} className="ship"> {ship.name}</Link>
+                        <p> {ship.model}</p>
+                    </ShipsListS>
+                )
+            })}
+
         </InfiniteScroll>
     );
 }
