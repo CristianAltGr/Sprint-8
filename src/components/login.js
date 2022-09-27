@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { LogInCard, LogInButton } from "./styles";
 
-const Login = ({ text, action }) => {
+const Login = () => {
 
     const [logged, setLogged] = useState(false);
 
@@ -24,7 +24,6 @@ const Login = ({ text, action }) => {
     const saveData = (event) => {
 
         const target = event.target;
-
         if (target.id === "nameUser") {
             setUser({ name: target.value, password: user.password })
         } else if (target.id === "passwordUser") {
@@ -35,27 +34,27 @@ const Login = ({ text, action }) => {
     const saveUser = (event) => {
         event.preventDefault();
 
-        const found = listUsers.includes(user);
+        const found = listUsers.some(e => e.name === user.name);
 
-        if (!found) {
-            setListUsers([...listUsers, user]);
-        } else {
+        if (found) {
             alert("This user exist in the database.")
+        } else {
+            setListUsers([...listUsers, user]);
         }
     }
 
     const checkUsers = (event) => {
         event.preventDefault();
 
-        const found = listUsers.includes(user);
+        const found = listUsers.some(e => e.name === user.name);
 
-        if (found === true) {
+        if (found) {
             setLogCard(false);
         } else {
             alert("Please, log in the app for check the data of Starships")
         }
 
-        setLogged(found); //this state is for check in all the app you're logged
+        setLogged(found);
     }
 
 
@@ -68,21 +67,21 @@ const Login = ({ text, action }) => {
 
     return (
         <>
-            <LogInButton onClick={loginCard}><p>{text}</p></LogInButton>
+            <LogInButton onClick={loginCard}><p>LOG IN</p></LogInButton>
+            <LogInButton onClick={loginCard}><p>SIGN UP </p></LogInButton>
 
             {logCard &&
                 <LogInCard>
                     <form>
-                        <p>{action}</p>
+                        <p>WELCOME STAR WARS HANGAR</p>
                         <input type="text" name="nameUser" id="nameUser" placeholder="Email" onChange={saveData} />
                         <input type="password" name="passwordUser" id="passwordUser" placeholder="Password" onChange={saveData} />
                         <div>
                             <button onClick={checkUsers}>Log in</button>
                             <button onClick={saveUser}>Sign up</button>
-
+                            <button onClick={() => { setListUsers([]) }}>Delete user list</button>
                         </div>
                     </form>
-
                 </LogInCard>}
         </>
 

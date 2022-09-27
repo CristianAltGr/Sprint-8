@@ -10,8 +10,7 @@ const Navbar = () => (
             <img src={logo} alt="x" />
         </div>
         <div className="LogNav">
-            <Login text="LOG IN" action="INTRODUCE YOUR DATA" />
-            <Login text="SIGN UP" action="CREATE YOUR PROFILE" />
+            <Login />
         </div>
         <nav>
             <ul>
