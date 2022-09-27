@@ -19,8 +19,10 @@ export const NavS = styled.nav`
     display: grid;
     height: 40vh;
     grid-template-rows: 60% 40%;
+    grid-template-columns: 2fr 3fr 2fr;
     
     .headContainer{
+            grid-column-start: 2;
             display: flex;
             justify-content: center;
             align-content: center;
@@ -40,6 +42,8 @@ export const NavS = styled.nav`
     }
 
     nav{
+        grid-row: 2;
+        grid-column: 1 / 4 ;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -69,6 +73,79 @@ export const NavS = styled.nav`
         .linkNav :hover{
             color: white;
             transition: 0,5s;
+        }
+    }
+
+`
+export const LogInButton = styled.button`
+    
+    height: 6vh;
+    width: 13vh;
+    margin: 3vh;
+    
+    p:hover{
+        color: white;
+        transition: 0.5s;
+    }
+`
+
+export const LogInCard = styled.div`
+    position: absolute;
+    z-index: 1;
+    background-color: #80808075;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    form{
+        height: 55%;
+        width: 40%;
+        display: grid;
+        
+        p{
+            text-align: center;
+            margin-top: 3vh ;
+            margin-bottom: 0;
+            font-size: 5vh;
+            font-weight: 300;
+            color: rgb(252, 239, 55);
+
+        }
+
+        input{
+            width: 80%;
+            height: 7vh;
+            margin: auto;
+            background-color: white;
+            color: #aaa;
+            text-align: center;
+            font-weight: 300;
+            border-radius: 7px;
+        }
+
+        div{
+            display: flex;
+            align-content: space-around ;
+        }
+
+        button{
+            width: 40%;
+            height: 7vh;
+            margin: auto;
+            margin-top: 5vh;
+            background-color: #80808075;
+            color: white;
+            font-weight: 300;
+            border-radius: 7px;
+
+            :hover{
+                background-color: #3e3ef1;
+                transition: 0.5s;
+            }
         }
     }
 
