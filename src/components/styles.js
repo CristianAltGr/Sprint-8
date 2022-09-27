@@ -74,6 +74,13 @@ export const NavS = styled.nav`
             color: white;
             transition: 0,5s;
         }
+
+        .logNav{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
     }
 
 `
@@ -81,7 +88,8 @@ export const LogInButton = styled.button`
     
     height: 6vh;
     width: 13vh;
-    margin: 3vh;
+    margin: 2vh;
+    margin-top: 10vh;
     
     p:hover{
         color: white;

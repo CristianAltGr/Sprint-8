@@ -9,10 +9,10 @@ const Navbar = () => (
             <h1 id="title">StarWars</h1>
             <img src={logo} alt="x" />
         </div>
-        <div>
+        <div className="LogNav">
             <Login text="LOG IN" action="INTRODUCE YOUR DATA" />
             <Login text="SIGN UP" action="CREATE YOUR PROFILE" />
-        </div >
+        </div>
         <nav>
             <ul>
                 <li type="none"><Link className="linkNav" to={"/"}><p>HOME</p></Link></li>
