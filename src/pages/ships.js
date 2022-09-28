@@ -4,8 +4,7 @@ import axios from "axios";
 import Link from "../components/Link";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { ShipsListS } from "../components/styles";
-/*import { useContext } from "react";
-import { AppContext } from "../aplication/provider";*/
+
 
 const APISHIPS = "https://swapi.dev/api/starships/?page=";
 
@@ -24,7 +23,7 @@ const Ships = () => {
 
 
     return (
-        <InfiniteScroll dataLength={ships.length} hasMore={hasMoreFilms} next={() => setPage((prevPage) => prevPage + 1)} scrollThreshold={0.7}>
+        <InfiniteScroll dataLength={ships.length} hasMore={hasMoreFilms} next={() => setPage((prevPage) => prevPage + 1)} scrollThreshold={0.4}>
 
             {ships.map(ship => {
 

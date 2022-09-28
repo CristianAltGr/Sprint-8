@@ -1,12 +1,13 @@
 import React from "react";
-//import { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { LogInCard, LogInButton } from "./styles";
+import { useContext } from "react";
+import { AppContext } from "../aplication/provider";
 
 const Login = () => {
 
-    const [logged, setLogged] = useState(false);
+    const [logged, setLogged] = useContext(AppContext);
 
     const [logCard, setLogCard] = useState(false);
     const [user, setUser] = useState({ name: "", password: "" });
@@ -16,8 +17,8 @@ const Login = () => {
         event.preventDefault();
 
         if (!logCard) {
+            setLogged(false);
             setLogCard(true);
-            setLogged(false); //For easy checking the log state change to false when click the logCard 
         }
     }
 
@@ -46,15 +47,17 @@ const Login = () => {
     const checkUsers = (event) => {
         event.preventDefault();
 
-        const found = listUsers.some(e => e.name === user.name);
+        const found = listUsers.some(e => (e.name === user.name) && (e.password === user.password));
 
         if (found) {
             setLogCard(false);
+            setLogged(true);
         } else {
-            alert("Please, log in the app for check the data of Starships")
+            alert("Error, at the log in.")
         }
 
-        setLogged(found);
+        console.log("Welcome!, " + user.name, "logged:", !logged);
+        setUser({ name: "", password: "" });
     }
 
 
@@ -74,7 +77,7 @@ const Login = () => {
                 <LogInCard>
                     <form>
                         <p>WELCOME STAR WARS HANGAR</p>
-                        <input type="text" name="nameUser" id="nameUser" placeholder="Email" onChange={saveData} />
+                        <input type="text" name="nameUser" id="nameUser" placeholder="Email" onChange={saveData} value={user.name} />
                         <input type="password" name="passwordUser" id="passwordUser" placeholder="Password" onChange={saveData} />
                         <div>
                             <button onClick={checkUsers}>Log in</button>
