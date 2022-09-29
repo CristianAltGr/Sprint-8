@@ -141,7 +141,7 @@ export const LogInCard = styled.div`
         }
 
         button{
-            width: 40%;
+            width: 30%;
             height: 7vh;
             margin: auto;
             margin-top: 5vh;
@@ -273,4 +273,69 @@ export const ShipImg = styled.div`
     background-position: center;
     background-clip: padding-box;
     background-repeat: no-repeat;
-` 
+`
+export const Conector = styled.p`
+    :hover{
+        font-size: 2.5vh;
+        color: white;
+        transition: 0.8s;
+    }
+`
+export const BackClick = styled.div`
+    position: absolute;
+    z-index: 1;
+    background-color: #80808075;
+    left: 0;
+    top: 0;
+    height: 170%;
+    width: 100%;
+`
+
+export const CardPilot = styled.div`
+    position: fixed;
+    z-index: 2;
+    left: 27%;
+    top : 20%;
+    height: 60%;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+   h5{
+        text-align: center;
+        margin-top: 3vh ;
+        margin-bottom: 0;
+        font-size: 5vh;
+        font-weight: 300;
+        color: rgb(252, 239, 55);
+   }
+
+   div{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 2;
+
+        p{
+            margin-top: 4vh;
+            text-align: center;
+            font-size: 2.3vh;
+        }
+   }
+
+   button{
+            width: 30%;
+            height: 7vh;
+            margin: auto;
+            margin-top: 5vh;
+            background-color: #80808075;
+            color: white;
+            font-weight: 300;
+            border-radius: 7px;
+
+            :hover{
+                background-color: #3e3ef1;
+                transition: 0.5s;
+            }
+        }
+`

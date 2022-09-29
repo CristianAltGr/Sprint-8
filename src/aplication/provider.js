@@ -1,7 +1,7 @@
 import { createContext, useState } from 'react';
 
 const Provider = ({ children }) => {
-    const [state, setState] = useState(false); // modificy the initial state to false boolean
+    const [state, setState] = useState(true); // modificy the initial state to false boolean
     return (
         <AppContext.Provider value={[state, setState]}>
             {children}

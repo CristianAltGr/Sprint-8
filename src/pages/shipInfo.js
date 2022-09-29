@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { StarShipS, ShipImg } from "../components/styles";
 import defaultImg from "../assets/autostop.jpg"
+import Pilots from "../components/pilots";
+import Films from "../components/films";
 
 const ShipInfo = () => {
 
@@ -28,14 +30,16 @@ const ShipInfo = () => {
                     <li type="none"><p>Length: {selectShip.length}</p></li>
                     <li type="none"><p>Max. atmosphering speed: {selectShip.max_atmosphering_speed}</p></li>
                     <li type="none"><p>Crew: {selectShip.crew}</p></li>
-                </ul>
-                <ul>
                     <li type="none"><p>Passengers: {selectShip.passengers}</p></li>
                     <li type="none"><p>Cargo capacity: {selectShip.cargo_capacity}</p></li>
+                </ul>
+                <ul>
                     <li type="none"><p>Consumables: {selectShip.consumables}</p></li>
                     <li type="none"><p>Hyperdrive rating: {selectShip.hyperdrive_rating}</p></li>
                     <li type="none"><p>MGLT: {selectShip.MGLT}</p></li>
                     <li type="none"><p>Starship class: {selectShip.starship_class}</p></li>
+                    <li type="none"><Pilots list={selectShip.pilots} /></li>
+                    <li type="none"><Films list={selectShip.films} /></li>
                 </ul>
             </div>
         </StarShipS>
