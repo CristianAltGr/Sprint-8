@@ -8,7 +8,7 @@ import { AppContext } from "../aplication/provider";
 const Login = () => {
 
     const [logged, setLogged] = useContext(AppContext);
-
+    const [LogMsg, setMsg] = useState("LOG IN");
     const [logCard, setLogCard] = useState(false);
     const [user, setUser] = useState({ name: "", password: "" });
     const [listUsers, setListUsers] = useState(JSON.parse(localStorage.getItem(`users`)) || []);
@@ -19,6 +19,7 @@ const Login = () => {
         if (!logCard) {
             setLogged(false);
             setLogCard(true);
+            setMsg("LOG IN");
         }
     }
 
@@ -52,6 +53,7 @@ const Login = () => {
         if (found) {
             setLogCard(false);
             setLogged(true);
+            setMsg("LOG OUT")
         } else {
             alert("Error, at the log in.")
         }
@@ -70,7 +72,7 @@ const Login = () => {
 
     return (
         <>
-            <LogInButton onClick={loginCard}><p>LOG IN</p></LogInButton>
+            <LogInButton onClick={loginCard}><p>{LogMsg}</p></LogInButton>
             <LogInButton onClick={loginCard}><p>SIGN UP </p></LogInButton>
 
             {logCard &&

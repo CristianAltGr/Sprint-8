@@ -1,8 +1,8 @@
 import { createContext, useState } from 'react';
 
 const Provider = ({ children }) => {
-    const [state, setState] = useState(true); // modificy the initial state to false boolean
-    return (
+    const [state, setState] = useState(false); // modificy the initial state to false boolean 
+    return (                                //true: total acces  false: need log in always
         <AppContext.Provider value={[state, setState]}>
             {children}
         </AppContext.Provider>
