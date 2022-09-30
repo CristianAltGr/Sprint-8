@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
-import { Conector, BackClick, CardPilot } from "./styles";
+import { Conector, BackClick, CardExtraInfo } from "./styles";
 
 const Films = ({ list }) => {
 
@@ -9,18 +9,19 @@ const Films = ({ list }) => {
     const [i, setI] = useState(1);
     const [film, setFilm] = useState({});
 
-    const initFilm = () => {
+    const initFilm = async () => {
 
         if (list.length > 0) {
             setCard(true);
-            axios.get(list[0]).then((res) => { setFilm(res.data) });
+            setI(1)
+            await axios.get(list[0]).then((res) => { setFilm(res.data) });
         }
     }
 
-    const nextFilm = () => {
+    const nextFilm = async () => {
 
         if (i < list.length) {
-            axios.get(list[i]).then(res => {
+            await axios.get(list[i]).then(res => {
                 setFilm(res.data);
             });
             setI(i + 1);
@@ -34,13 +35,18 @@ const Films = ({ list }) => {
             {card &&
                 <>
                     <BackClick onClick={() => { setCard(false) }} />
-                    <CardPilot>
+                    <CardExtraInfo>
                         <h5>{film.title}</h5>
+                        <h6>{film.opening_crawl}</h6>
                         <div>
-
+                            <p>Chronological order : {film.episode_id}</p>
+                            <p>Director: {film.director}</p>
+                            <p>Producer: {film.producer}</p>
+                            <p>Release date: {film.release_date}</p>
+                            <p>Films : {i} / {list.length}</p>
                         </div>
                         <button onClick={nextFilm}>Next Film</button>
-                    </CardPilot>
+                    </CardExtraInfo>
                 </>
 
             }

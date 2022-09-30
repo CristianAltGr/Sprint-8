@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
-import { BackClick, CardPilot, Conector } from "./styles";
+import { BackClick, CardExtraInfo, Conector } from "./styles";
 
 const Pilots = ({ list }) => {
 
@@ -9,18 +9,19 @@ const Pilots = ({ list }) => {
     const [i, setI] = useState(1);
     const [pilot, setPilot] = useState({});
 
-    const initPilot = () => {
+    const initPilot = async () => {
 
         if (list.length > 0) {
             setCard(true);
-            axios.get(list[0]).then((res) => { setPilot(res.data) });
+            setI(1);
+            await axios.get(list[0]).then((res) => { setPilot(res.data) });
         }
     }
 
-    const nextPilot = () => {
+    const nextPilot = async () => {
 
         if (i < list.length) {
-            axios.get(list[i]).then(res => {
+            await axios.get(list[i]).then(res => {
                 setPilot(res.data);
             });
             setI(i + 1);
@@ -34,7 +35,7 @@ const Pilots = ({ list }) => {
             {card &&
                 <>
                     <BackClick onClick={() => { setCard(false) }} />
-                    <CardPilot>
+                    <CardExtraInfo>
                         <h5>{pilot.name}</h5>
                         <div>
                             <p>Height:  {pilot.height} </p>
@@ -44,9 +45,10 @@ const Pilots = ({ list }) => {
                             <p>Eye color:  {pilot.eye_color}</p>
                             <p>Birth year:  {pilot.birth_year} </p>
                             <p>gender:  {pilot.gender}</p>
+                            <p>Pilots : {i} / {list.length}</p>
                         </div>
                         <button onClick={nextPilot}>Next pilot</button>
-                    </CardPilot>
+                    </CardExtraInfo>
                 </>
 
             }

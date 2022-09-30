@@ -276,9 +276,10 @@ export const ShipImg = styled.div`
 `
 export const Conector = styled.p`
     :hover{
-        font-size: 2.5vh;
+        font-size: 2.2vh;
         color: white;
-        transition: 0.8s;
+        transition: 0.4s;
+        cursor: pointer;
     }
 `
 export const BackClick = styled.div`
@@ -291,12 +292,12 @@ export const BackClick = styled.div`
     width: 100%;
 `
 
-export const CardPilot = styled.div`
+export const CardExtraInfo = styled.div`
     position: fixed;
     z-index: 2;
     left: 27%;
     top : 20%;
-    height: 60%;
+    height: 70%;
     width: 45%;
     display: flex;
     flex-direction: column;
@@ -310,24 +311,35 @@ export const CardPilot = styled.div`
         font-weight: 300;
         color: rgb(252, 239, 55);
    }
-
+ 
    div{
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 2;
-
-        p{
-            margin-top: 4vh;
-            text-align: center;
-            font-size: 2.3vh;
-        }
    }
+
+    h6{
+        margin : 0;
+        margin-top: 20px;
+        padding: 0;
+        font-family: 'Pathway Gothic One', sans-serif, Helvetica, Arial;
+        color: #aaa;
+        text-align: justify;
+        padding-left: 4vh;
+        padding-right: 4vh;
+    }
+
+     p{
+        margin-top: 5vh;
+        padding-left: 4vh;
+        padding-right: 4vh;
+        font-size: 2.3vh;
+    }
 
    button{
             width: 30%;
             height: 7vh;
             margin: auto;
-            margin-top: 5vh;
             background-color: #80808075;
             color: white;
             font-weight: 300;
