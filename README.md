@@ -1,1 +1,1 @@
-Working with react API's and jest test , localStrorage, Routes and hooks.
+Sprint8 of it Academy, working at Starwars page.
