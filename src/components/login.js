@@ -72,7 +72,7 @@ const Login = () => {
 
     return (
         <>
-            <LogInButton onClick={loginCard}><p>{LogMsg}</p></LogInButton>
+            <LogInButton id="testLog" onClick={loginCard}><p>{LogMsg}</p></LogInButton>
             <LogInButton onClick={loginCard}><p>SIGN UP </p></LogInButton>
 
             {logCard &&

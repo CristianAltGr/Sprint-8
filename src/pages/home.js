@@ -17,8 +17,6 @@ const Home = () => {
             </section>
 
             <Link className="linkHome" to={"/ships/"}>Go to the hangar!</Link>
-
-
         </HomeS>
 
     );
