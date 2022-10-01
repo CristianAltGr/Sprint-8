@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { LogInCard, LogInButton } from "./styles";
+import { LogInCard, LogInButton, BackClick } from "./styles";
 import { useContext } from "react";
 import { AppContext } from "../aplication/provider";
 
@@ -76,18 +76,21 @@ const Login = () => {
             <LogInButton onClick={loginCard}><p>SIGN UP </p></LogInButton>
 
             {logCard &&
-                <LogInCard>
-                    <form>
-                        <p>WELCOME STAR WARS HANGAR</p>
-                        <input type="text" name="nameUser" id="nameUser" placeholder="Email" onChange={saveData} value={user.name} />
-                        <input type="password" name="passwordUser" id="passwordUser" placeholder="Password" onChange={saveData} />
-                        <div>
-                            <button onClick={checkUsers}>Log in</button>
-                            <button onClick={saveUser}>Sign up</button>
-                            <button onClick={() => { setListUsers([]) }}>Delete user list</button>
-                        </div>
-                    </form>
-                </LogInCard>}
+                <>
+                    <BackClick onClick={() => { setLogCard(false) }} />
+                    <LogInCard>
+                        <form>
+                            <p>WELCOME STAR WARS HANGAR</p>
+                            <input type="text" name="nameUser" id="nameUser" placeholder="Email" onChange={saveData} value={user.name} />
+                            <input type="password" name="passwordUser" id="passwordUser" placeholder="Password" onChange={saveData} />
+                            <div>
+                                <button onClick={checkUsers}>Log in</button>
+                                <button onClick={saveUser}>Sign up</button>
+                                <button onClick={() => { setListUsers([]) }}>Delete user list</button>
+                            </div>
+                        </form>
+                    </LogInCard>
+                </>}
         </>
 
     )

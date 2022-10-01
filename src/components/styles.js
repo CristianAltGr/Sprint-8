@@ -100,18 +100,17 @@ export const LogInButton = styled.button`
 export const LogInCard = styled.div`
     position: absolute;
     z-index: 1;
-    background-color: #80808075;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
+    left: 30%;
+    top: auto;
+    height: 55%;
+    width: 40%;
     display: flex;
     align-items: center;
     justify-content: center;
 
     form{
-        height: 55%;
-        width: 40%;
+        height: 100%;
+        width: 100%;
         display: grid;
         
         p{
@@ -283,12 +282,12 @@ export const Conector = styled.p`
     }
 `
 export const BackClick = styled.div`
-    position: absolute;
+    position: fixed;
     z-index: 1;
     background-color: #80808075;
     left: 0;
     top: 0;
-    height: 170%;
+    height: 100vh;
     width: 100%;
 `
 

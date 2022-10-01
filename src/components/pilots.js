@@ -30,7 +30,7 @@ const Pilots = ({ list }) => {
 
     return (
         <>
-            <Conector onClick={initPilot}>Pilots</Conector>
+            <Conector onClick={initPilot}>PILOTS</Conector>
 
             {card &&
                 <>

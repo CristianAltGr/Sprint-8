@@ -30,7 +30,7 @@ const Films = ({ list }) => {
 
     return (
         <>
-            <Conector onClick={initFilm}>Films</Conector>
+            <Conector onClick={initFilm}>FILMS</Conector>
 
             {card &&
                 <>
